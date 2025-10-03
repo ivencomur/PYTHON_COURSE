@@ -232,12 +232,14 @@ Different systems and shells may require different Python commands:
 ### Virtual Environment Tools
 
 **venv (built-in module):**
+
 - Create: `python -m venv <name>`
 - Activate (Git Bash): `source <name>/Scripts/activate`
 - Activate (Command Prompt): `<name>\Scripts\activate.bat`
 - Deactivate: `deactivate`
 
 **virtualenvwrapper-win (alternative):**
+
 - Install: `pip install virtualenvwrapper-win`
 - Create: `mkvirtualenv <name>`
 - Activate: `workon <name>`
@@ -291,12 +293,14 @@ The course materials occasionally format this as `> pip freeze > requirements.tx
 ## Resources
 
 ### Documentation
+
 - [Python 3.9 Official Documentation](https://docs.python.org/3.9/)
 - [venv Module Reference](https://docs.python.org/3/library/venv.html)
 - [pip User Guide](https://pip.pypa.io/en/stable/user_guide/)
 - [IPython Documentation](https://ipython.readthedocs.io/)
 
 ### Development Tools
+
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Git for Windows](https://gitforwindows.org/)
 - [Python Package Index (PyPI)](https://pypi.org/)
@@ -338,4 +342,4 @@ This exercise established foundational Python development practices: environment
 
 ---
 
-*Documentation prepared to assist future students working through similar environment setup challenges.*
+_Documentation prepared to assist future students working through similar environment setup challenges._
