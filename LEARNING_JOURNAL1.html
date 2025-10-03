@@ -318,7 +318,7 @@
           <li><a href="#section-5">Skills Gained</a></li>
           <li><a href="#section-6">Evidence Checklist</a></li>
           <li><a href="#section-7">Command Reference (For Reuse)</a></li>
-          <li><a href="#section-8">AI Assistance</a></li>
+          <li><a href="#section-8">AI Assistance Declaration</a></li>
           <li><a href="#section-9">Key Takeaways</a></li>
           <li><a href="#section-10">Looking Forward</a></li>
         </ol>
@@ -561,7 +561,7 @@
           <li><code>README.md</code> (comprehensive documentation)</li>
           <li><code>add.py</code> (functional addition script)</li>
           <li><code>requirements.txt</code> (dependency list)</li>
-          <li><code>LEARNING_JOURNAL.md</code> (this document)</li>
+          <li><code>LEARNING_JOURNAL1.html</code> (this document)</li>
           <li>Complete screenshot collection</li>
         </ul>
       </div>
@@ -570,37 +570,88 @@
         <h2>7) Command Reference (For Reuse)</h2>
 
         <div class="code-block">
-          # Create and activate environment (Windows Git Bash) py -3.9 -m venv
-          cf-python-base source cf-python-base/Scripts/activate # Verify
-          environment python --version which python # Install packages python -m
-          pip install --upgrade pip pip install ipython # Check installations
-          ipython --version pip list # Export dependencies pip freeze >
-          requirements.txt # Recreate environment deactivate py -3.9 -m venv
-          cf-python-copy source cf-python-copy/Scripts/activate pip install -r
-          requirements.txt # Run script python add.py # Version control git add
-          . git commit -m "Exercise 1.1: Complete deliverables" git push
+# Create and activate environment (Windows Git Bash)
+py -3.9 -m venv cf-python-base
+source cf-python-base/Scripts/activate
+
+# Verify environment
+python --version
+which python
+
+# Install packages
+python -m pip install --upgrade pip
+pip install ipython
+
+# Check installations
+ipython --version
+pip list
+
+# Export dependencies
+pip freeze > requirements.txt
+
+# Recreate environment
+deactivate
+py -3.9 -m venv cf-python-copy
+source cf-python-copy/Scripts/activate
+pip install -r requirements.txt
+
+# Run script
+python add.py
+
+# Version control
+git add .
+git commit -m "Exercise 1.1: Complete deliverables"
+git push
         </div>
       </div>
 
       <div class="section" id="section-8">
-        <h2>8) AI Assistance</h2>
-        <p>Used AI tools (ChatGPT and Claude) to:</p>
+        <h2>8) AI Assistance Declaration</h2>
+        
+        <p>
+          This exercise was completed through independent, self-directed learning. 
+          AI assistance was utilized to resolve technical challenges related to:
+        </p>
+
+        <h3>Technical Problem-Solving</h3>
         <ul>
           <li>
-            Translate Python 3.8.7-specific instructions to 3.9.x equivalents
+            <strong>Version compatibility:</strong> Adapting Python 3.8.7-specific 
+            course instructions for Python 3.9.x environments
           </li>
-          <li>Adapt Command Prompt commands for Git Bash syntax</li>
           <li>
-            Clarify deprecated tool recommendations (virtualenvwrapper vs. venv)
+            <strong>Tool alternatives:</strong> Understanding current best practices 
+            when course materials referenced deprecated tools (virtualenvwrapper vs venv)
           </li>
-          <li>Debug PATH and shell-specific issues</li>
-          <li>Understand correct pip freeze redirection syntax</li>
+          <li>
+            <strong>Shell-specific syntax:</strong> Translating Command Prompt commands 
+            to Git Bash equivalents for Windows development
+          </li>
+          <li>
+            <strong>Command clarification:</strong> Resolving syntax ambiguities in 
+            course materials (e.g., pip freeze redirection)
+          </li>
+          <li>
+            <strong>Environment configuration:</strong> Troubleshooting PATH and 
+            activation issues specific to different shell environments
+          </li>
         </ul>
+
+        <h3>Learning Context</h3>
         <p>
-          <strong>Method:</strong> Asked for explanations rather than copy-paste
-          solutions. Executed all commands manually, validated results, and
-          documented reasoning. AI served as a troubleshooting resource, not a
-          replacement for hands-on learning.
+          This exercise was completed independently while working asynchronously through 
+          the course. AI tools served as a technical reference for modernizing course 
+          instructions to current Python standards, similar to consulting documentation 
+          or developer forums when encountering version-specific issues.
+        </p>
+
+        <h3>Implementation Approach</h3>
+        <p>
+          All commands were executed manually and errors were debugged hands-on. AI 
+          assistance provided guidance on current best practices when course materials 
+          referenced older tools or syntax, but all solutions were implemented and 
+          validated directly. This approach ensured hands-on learning while maintaining 
+          compatibility with current Python ecosystem standards.
         </p>
       </div>
 
@@ -690,7 +741,7 @@
       <div class="page-footer">
         <div class="social-links">
           <a
-            href="https://ivan-cortes-portfolio-v1.onrender.com//"
+            href="https://ivan-cortes-portfolio-v1.onrender.com/"
             target="_blank"
             >Portfolio</a
           >
