@@ -212,6 +212,48 @@
         transform: translateY(-2px);
       }
 
+      .toc {
+        background-color: var(--secondary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: 5px;
+        padding: 20px 30px;
+        margin: 25px 0 40px 0;
+      }
+
+      .toc h2 {
+        margin-top: 0;
+        border-bottom: none;
+        color: var(--primary-color);
+      }
+
+      .toc ol {
+        margin-left: 20px;
+        counter-reset: item;
+        list-style-type: none;
+      }
+
+      .toc li {
+        counter-increment: item;
+        margin-bottom: 8px;
+      }
+
+      .toc li:before {
+        content: counter(item) ") ";
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .toc a {
+        color: var(--customized-orange-light-bg);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .toc a:hover {
+        color: var(--primary-hover-color);
+        text-decoration: underline;
+      }
+
       @media print {
         body {
           background: white;
@@ -263,6 +305,17 @@
 
       <hr />
 
+      <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#section-1">Exercise Overview</a></li>
+          <li><a href="#section-2">What I Did (Process Summary)</a></li>
+          <li><a href="#section-3">Challenges & Solutions</a></li>
+          <li><a href="#section-4">Key Takeaways</a></li>
+          <li><a href="#section-5">AI Assistance Declaration</a></li>
+        </ol>
+      </div>
+
       <div class="section" id="section-1">
         <h2>1) Exercise Overview</h2>
         <p>
@@ -306,10 +359,10 @@
           </li>
           <li>
             Documented my justification for choosing dictionaries and lists in
-            the project's `README.md`.
+            the project's README.md.
           </li>
           <li>
-            Organized all project files into a new `Exercise 1.2` subfolder for
+            Organized all project files into a new Exercise 1.2 subfolder for
             clarity.
           </li>
           <li>
@@ -327,8 +380,8 @@
           <p>
             Initially, all files from Exercise 1.1 were at the root of the
             project, which could become messy. To fix this, I created dedicated
-            folders for `Exercise 1.1` and `Exercise 1.2` and moved the relevant
-            files into them. I used `git mv` to ensure Git tracked the file
+            folders for Exercise 1.1 and Exercise 1.2 and moved the relevant
+            files into them. I used <code>git mv</code> to ensure Git tracked the file
             relocations properly.
           </p>
         </div>
@@ -362,7 +415,7 @@
           </li>
           <li>
             Accessing nested data structures (like a list of dictionaries) is a
-            common and powerful pattern, e.g., `all_recipes[0]['ingredients']`.
+            common and powerful pattern, e.g., <code>all_recipes[0]['ingredients']</code>.
           </li>
           <li>
             The similarities between Python data structures and those in other
@@ -389,6 +442,52 @@
         </ul>
       </div>
 
+      <div class="section" id="section-5">
+        <h2>5) AI Assistance Declaration</h2>
+        
+        <p>
+          This exercise was completed through independent, self-directed learning. 
+          AI assistance was utilized to resolve technical challenges related to:
+        </p>
+
+        <h3>Technical Problem-Solving</h3>
+        <ul>
+          <li>
+            <strong>Syntax verification:</strong> Confirming correct Python dictionary 
+            and list syntax for current Python 3.9.x standards
+          </li>
+          <li>
+            <strong>Data structure selection:</strong> Validating the choice of 
+            dictionaries vs tuples vs lists for different use cases
+          </li>
+          <li>
+            <strong>Nested data access:</strong> Understanding the correct syntax for 
+            accessing elements in nested structures (list of dictionaries)
+          </li>
+          <li>
+            <strong>Best practices:</strong> Learning current conventions for structuring 
+            and naming data in Python applications
+          </li>
+        </ul>
+
+        <h3>Learning Context</h3>
+        <p>
+          This exercise was completed independently while working asynchronously through 
+          the course. AI tools served as a technical reference for validating syntax and 
+          data structure choices, similar to consulting official Python documentation or 
+          programming references when uncertain about implementation details.
+        </p>
+
+        <h3>Implementation Approach</h3>
+        <p>
+          All data structures were created and tested hands-on in the IPython shell. 
+          Design decisions for choosing dictionaries and lists were made based on 
+          understanding of data structure properties and project requirements. AI 
+          assistance confirmed that chosen approaches aligned with current Python best 
+          practices, but all code implementation and testing was performed directly.
+        </p>
+      </div>
+
       <hr />
 
       <div class="status-box">
@@ -399,7 +498,7 @@
       <div class="page-footer">
         <div class="social-links">
           <a
-            href="https://ivan-cortes-portfolio-v1.onrender.com//"
+            href="https://ivan-cortes-portfolio-v1.onrender.com/"
             target="_blank"
             >Portfolio</a
           >
@@ -410,7 +509,6 @@
           >
           <a href="https://x.com/IVENCOMUR" target="_blank">Twitter</a>
           <a href="https://github.com/ivencomur" target="_blank">GitHub</a>
-          <a href="https://wa.me/your-number-here" target="_blank">WhatsApp</a>
         </div>
         <p>
           <a href="https://github.com/ivencomur/PYTHON_COURSE" target="_blank"

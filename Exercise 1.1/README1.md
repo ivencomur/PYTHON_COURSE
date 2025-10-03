@@ -20,8 +20,8 @@ This document provides a complete walkthrough of Exercise 1.1, including the req
 - [Installation Guide](#installation-guide)
 - [Technical Notes](#technical-notes)
 - [Deliverables](#deliverables)
+- [AI Assistance Declaration](#ai-assistance-declaration)
 - [Resources](#resources)
-- [AI Assistance Note](#ai-assistance-note)
 
 ---
 
@@ -290,6 +290,25 @@ The course materials occasionally format this as `> pip freeze > requirements.tx
 
 ---
 
+## AI Assistance Declaration
+
+This exercise was completed through independent, self-directed learning. AI assistance was utilized to resolve technical challenges related to:
+
+### Technical Problem-Solving
+- **Version compatibility:** Adapting Python 3.8.7-specific course instructions for Python 3.9.x environments
+- **Tool alternatives:** Understanding current best practices when course materials referenced deprecated tools (virtualenvwrapper vs venv)
+- **Shell-specific syntax:** Translating Command Prompt commands to Git Bash equivalents for Windows development
+- **Command clarification:** Resolving syntax ambiguities in course materials (e.g., pip freeze redirection)
+- **Environment configuration:** Troubleshooting PATH and activation issues specific to different shell environments
+
+### Learning Context
+This exercise was completed independently while working asynchronously through the course. AI tools served as a technical reference for modernizing course instructions to current Python standards, similar to consulting documentation or developer forums when encountering version-specific issues.
+
+### Implementation Approach
+All commands were executed manually and errors were debugged hands-on. AI assistance provided guidance on current best practices when course materials referenced older tools or syntax, but all solutions were implemented and validated directly. This approach ensured hands-on learning while maintaining compatibility with current Python ecosystem standards.
+
+---
+
 ## Resources
 
 ### Documentation
@@ -307,29 +326,6 @@ The course materials occasionally format this as `> pip freeze > requirements.tx
 
 ---
 
-## AI Assistance Note
-
-This project required AI assistance (ChatGPT and Claude) for specific technical challenges:
-
-**Areas where AI provided guidance:**
-
-1. **Version compatibility:** Adapting Python 3.8.7-specific instructions for Python 3.9.x environments
-2. **Deprecated tool alternatives:** Understanding that `venv` is now the standard approach versus older `virtualenvwrapper` implementations
-3. **Shell-specific syntax:** Translating Command Prompt commands to Git Bash equivalents
-4. **Command clarification:** Resolving syntax ambiguities in course materials (e.g., pip freeze redirection)
-5. **PATH configuration:** Troubleshooting environment variable issues across different shells
-
-**Application methodology:**
-AI served as a reference for modernizing deprecated instructions and debugging environment-specific issues. All commands were executed manually, errors were encountered and resolved directly, and the learning process remained hands-on.
-
-**Context:**
-Technology documentation evolves rapidly. Python 3.8.7 (released 2020) remains functional, but ecosystem best practices have shifted. AI tools provided a bridge between legacy course materials and current Python development standards, similar to consulting Stack Overflow or technical forums.
-
-**Recommendation for students:**
-Environment setup challenges are common in development workflows. When encountering tooling issues unrelated to core programming concepts, consult multiple resources—documentation, forums, AI tools, or mentors—to find working solutions for your specific system configuration.
-
----
-
 ## Summary
 
 This exercise established foundational Python development practices: environment isolation, dependency management, and reproducible workflows. The technical skills developed here—troubleshooting version conflicts, adapting instructions to different systems, and documenting solutions—are essential for professional software development.
@@ -342,4 +338,4 @@ This exercise established foundational Python development practices: environment
 
 ---
 
-_Documentation prepared to assist future students working through similar environment setup challenges._
+*Documentation prepared to assist future learners working through similar environment setup challenges.*
