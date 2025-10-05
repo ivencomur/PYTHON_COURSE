@@ -8,6 +8,7 @@ conn = mysql.connector.connect(
 )
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Create cursor
 cursor = conn.cursor()
 
@@ -16,10 +17,15 @@ cursor.execute("CREATE DATABASE IF NOT EXISTS task_database")
 
 # Use the database
 =======
+=======
+>>>>>>> Stashed changes
 cursor = conn.cursor()
 
 # Create and use database
 cursor.execute("CREATE DATABASE IF NOT EXISTS task_database")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 cursor.execute("USE task_database")
 
@@ -32,6 +38,10 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS Recipes (
     difficulty VARCHAR(20)
 )''')
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
