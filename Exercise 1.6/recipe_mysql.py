@@ -38,10 +38,20 @@ def calculate_difficulty(cooking_time, ingredients):
 # Function to create a recipe
 def create_recipe(conn, cursor):
     name = input("Enter recipe name: ")
-    cooking_time = int(input("Enter cooking time (minutes): "))
+    
+    try:
+        cooking_time = int(input("Enter cooking time (minutes): "))
+    except ValueError:
+        print("Error: Please enter a valid number for cooking time.")
+        return
+    
+    try:
+        num_ingredients = int(input("How many ingredients? "))
+    except ValueError:
+        print("Error: Please enter a valid number for ingredient count.")
+        return
     
     ingredients = []
-    num_ingredients = int(input("How many ingredients? "))
     for i in range(num_ingredients):
         ingredient = input(f"Enter ingredient {i+1}: ")
         ingredients.append(ingredient)
@@ -74,12 +84,19 @@ def search_recipe(conn, cursor):
     for i, ingredient in enumerate(all_ingredients, 1):
         print(f"{i}. {ingredient}")
     
-    choice = int(input("\nEnter ingredient number to search: "))
-    search_ingredient = all_ingredients[choice - 1]
+    try:
+        choice = int(input("\nEnter ingredient number to search: "))
+        search_ingredient = all_ingredients[choice - 1]
+    except ValueError:
+        print("Error: Please enter a valid number.")
+        return
+    except IndexError:
+        print("Error: That number is not in the list.")
+        return
     
-    # Search for recipes
-    sql = f"SELECT * FROM Recipes WHERE ingredients LIKE '%{search_ingredient}%'"
-    cursor.execute(sql)
+    # Search for recipes - POSSIBLE ERROR FIXED (UPON AI): Using parameterized query
+    sql = "SELECT * FROM Recipes WHERE ingredients LIKE %s"
+    cursor.execute(sql, ('%' + search_ingredient + '%',))
     results = cursor.fetchall()
     
     print(f"\nRecipes with {search_ingredient}:")
@@ -100,7 +117,12 @@ def update_recipe(conn, cursor):
     for row in results:
         print(f"ID: {row[0]} | Name: {row[1]}")
     
-    recipe_id = int(input("\nEnter recipe ID to update: "))
+    try:
+        recipe_id = int(input("\nEnter recipe ID to update: "))
+    except ValueError:
+        print("Error: Please enter a valid number.")
+        return
+    
     print("\nWhat would you like to update?")
     print("1. Name")
     print("2. Cooking Time")
@@ -113,7 +135,12 @@ def update_recipe(conn, cursor):
         sql = "UPDATE Recipes SET name = %s WHERE id = %s"
         cursor.execute(sql, (new_name, recipe_id))
     elif choice == "2":
-        new_time = int(input("Enter new cooking time: "))
+        try:
+            new_time = int(input("Enter new cooking time: "))
+        except ValueError:
+            print("Error: Please enter a valid number.")
+            return
+        
         # Get ingredients to recalculate difficulty
         cursor.execute("SELECT ingredients FROM Recipes WHERE id = %s", (recipe_id,))
         ingredients_str = cursor.fetchone()[0]
@@ -123,7 +150,12 @@ def update_recipe(conn, cursor):
         sql = "UPDATE Recipes SET cooking_time = %s, difficulty = %s WHERE id = %s"
         cursor.execute(sql, (new_time, new_difficulty, recipe_id))
     elif choice == "3":
-        num_ingredients = int(input("How many ingredients? "))
+        try:
+            num_ingredients = int(input("How many ingredients? "))
+        except ValueError:
+            print("Error: Please enter a valid number.")
+            return
+        
         ingredients = []
         for i in range(num_ingredients):
             ingredient = input(f"Enter ingredient {i+1}: ")
@@ -151,7 +183,11 @@ def delete_recipe(conn, cursor):
     for row in results:
         print(f"ID: {row[0]} | Name: {row[1]}")
     
-    recipe_id = int(input("\nEnter recipe ID to delete: "))
+    try:
+        recipe_id = int(input("\nEnter recipe ID to delete: "))
+    except ValueError:
+        print("Error: Please enter a valid number.")
+        return
     
     sql = "DELETE FROM Recipes WHERE id = %s"
     cursor.execute(sql, (recipe_id,))
@@ -187,7 +223,7 @@ def main_menu(conn, cursor):
         else:
             print("\nInvalid choice. Please try again.")
     
-    conn.commit()
+    
     conn.close()
 
 # Run the app
