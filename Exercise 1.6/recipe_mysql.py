@@ -7,38 +7,10 @@ conn = mysql.connector.connect(
     passwd='password'
 )
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# Create cursor
-cursor = conn.cursor()
-
-# Create database
-cursor.execute("CREATE DATABASE IF NOT EXISTS task_database")
-
-# Use the database
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 cursor = conn.cursor()
 
 # Create and use database
 cursor.execute("CREATE DATABASE IF NOT EXISTS task_database")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 cursor.execute("USE task_database")
 
 # Create Recipes table
@@ -49,22 +21,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS Recipes (
     cooking_time INT,
     difficulty VARCHAR(20)
 )''')
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 # Function to calculate difficulty
 def calculate_difficulty(cooking_time, ingredients):
     num_ingredients = len(ingredients)
