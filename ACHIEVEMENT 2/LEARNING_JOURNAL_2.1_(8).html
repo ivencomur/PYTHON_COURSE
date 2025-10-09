@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Journal - Exercise 2.1</title>
+    <style>
+      :root {
+        --primary-color: #20504b;
+        --primary-hover-color: #1a403c;
+        --secondary-color: #f4f4f4;
+        --text-color: #333;
+        --grid-item-bg-color: #2c3e50;
+        --alt-grid-item-text-color: #0056b3;
+        --customized-orange-light-bg: #b46100;
+        --customized-orange-dark-bg: #ffa061;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #d9e1e5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 8.5in;
+        margin: 0 auto;
+        background: white;
+        padding: 0.75in;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .page-header {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin: -0.75in -0.75in 30px -0.75in;
+      }
+
+      .page-header h1 {
+        color: #fff;
+        border-bottom: none;
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        color: var(--alt-grid-item-text-color);
+        font-size: 28px;
+        margin-bottom: 10px;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 10px;
+      }
+
+      .header-info {
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .header-info strong {
+        color: var(--customized-orange-dark-bg);
+      }
+
+      h2 {
+        color: var(--alt-grid-item-text-color);
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--primary-color);
+      }
+
+      h3 {
+        color: var(--grid-item-bg-color);
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+
+      ul,
+      ol {
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .toc {
+        background-color: var(--secondary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: 5px;
+        padding: 20px 30px;
+        margin: 25px 0 40px 0;
+      }
+
+      .toc h2 {
+        margin-top: 0;
+        border-bottom: none;
+        color: var(--primary-color);
+      }
+
+      .toc ol {
+        margin-left: 20px;
+        counter-reset: item;
+        list-style-type: none;
+      }
+
+      .toc li {
+        counter-increment: item;
+        margin-bottom: 8px;
+      }
+
+      .toc li:before {
+        content: counter(item) ") ";
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .toc a {
+        color: var(--customized-orange-light-bg);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .toc a:hover {
+        color: var(--primary-hover-color);
+        text-decoration: underline;
+      }
+
+      .answer-box {
+        background-color: #e8f4f8;
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 3px;
+      }
+
+      .code-block {
+        background-color: var(--secondary-color);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        overflow-x: auto;
+        border-radius: 3px;
+      }
+
+      .challenge-item {
+        margin-bottom: 20px;
+      }
+
+      .challenge-title {
+        font-weight: bold;
+        color: var(--customized-orange-light-bg);
+        margin-bottom: 5px;
+      }
+
+      .solution {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .section {
+        margin-bottom: 35px;
+      }
+
+      .status-box {
+        background-color: var(--secondary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: 5px;
+        padding: 15px;
+        margin: 20px 0;
+        text-align: center;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: var(--secondary-color);
+      }
+
+      .company-card {
+        background-color: var(--secondary-color);
+        border-left: 4px solid var(--customized-orange-light-bg);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 3px;
+      }
+
+      .company-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .page-footer {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin: 30px -0.75in -0.75in -0.75in;
+      }
+
+      .page-footer a {
+        color: var(--customized-orange-dark-bg);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .page-footer a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      .page-footer .social-links {
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      .page-footer .social-links a {
+        margin: 0 10px;
+      }
+
+      .page-footer p {
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid var(--primary-color);
+        margin: 30px 0;
+      }
+
+      .floating-nav {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .floating-nav a {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-size: 20px;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 26px;
+      }
+      .floating-nav a:hover {
+        background-color: var(--customized-orange-dark-bg);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+        .container {
+          max-width: 100%;
+          width: 8.5in;
+          padding: 0.75in;
+          box-shadow: none;
+          margin: 0;
+        }
+        @page {
+          size: letter;
+          margin: 0.75in;
+        }
+        h1,
+        h2,
+        h3 {
+          page-break-after: avoid;
+          page-break-inside: avoid;
+        }
+        .section,
+        .code-block,
+        .challenge-item {
+          page-break-inside: avoid;
+        }
+        .toc {
+          page-break-after: always;
+        }
+        a {
+          color: #2980b9;
+          text-decoration: none;
+        }
+        .floating-nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Learning Journal – Exercise 2.1</h1>
+        <div class="header-info">
+          <strong>Name:</strong> Ivan Cortes<br />
+          <strong>Course:</strong> CareerFoundry – Python for Web Developers<br />
+          <strong>Exercise:</strong> 2.1 – Getting Started with Django<br />
+          <strong>Date:</strong> October 2025<br />
+          <strong>Python Version:</strong> 3.13.5<br />
+          <strong>Django Version:</strong> 5.x.x
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#section-1">Exercise Overview</a></li>
+          <li><a href="#section-2">Transition to Achievement 2</a></li>
+          <li><a href="#section-3">Question 1: Django's Popularity</a></li>
+          <li><a href="#section-4">Question 2: Companies Using Django</a></li>
+          <li><a href="#section-5">Question 3: Django Usage Scenarios</a></li>
+          <li><a href="#section-6">MVT vs MVC Architecture</a></li>
+          <li><a href="#section-7">Technical Setup Process</a></li>
+          <li><a href="#section-8">Version Adaptation Notes</a></li>
+          <li><a href="#section-9">Challenges & Solutions</a></li>
+          <li><a href="#section-10">Key Takeaways</a></li>
+          <li><a href="#section-11">AI Assistance Declaration</a></li>
+          <li><a href="#section-12">Looking Forward to Exercise 2.2</a></li>
+        </ol>
+      </div>
+
+      <div class="section" id="section-1">
+        <h2>1) Exercise Overview</h2>
+        <p>
+          Exercise 2.1 marks the beginning of Achievement 2 and represents a significant milestone in my learning journey. After completing all seven exercises in Achievement 1, mastering Python fundamentals from environment setup through ORM with SQLAlchemy, I'm now ready to enter the world of web development with Django.
+        </p>
+        <p>
+          This exercise introduced me to Django conceptually before writing any code. Understanding WHY Django exists, WHEN to use it, and HOW it differs from other approaches provides the foundation for everything that follows. The theoretical research required me to think critically about framework selection—a real-world skill that developers use when starting new projects.
+        </p>
+        <h3>Exercise Objectives</h3>
+        <ul>
+          <li>Understand Django's MVT (Model-View-Template) architecture and how it compares to MVC</li>
+          <li>Research and articulate Django's strengths and limitations</li>
+          <li>Evaluate when Django is (and isn't) the right tool for a project</li>
+          <li>Install Django 5.x in a Python 3.13.5 environment</li>
+          <li>Document version adaptations from course materials</li>
+          <li>Establish the development environment for Achievement 2</li>
+        </ul>
+      </div>
+
+      <div class="section" id="section-2">
+        <h2>2) Transition to Achievement 2</h2>
+        <p>
+          Achievement 1 equipped me with Python fundamentals: data structures, control flow, functions, file handling, OOP, and database interaction. The Recipe App command-line application I built demonstrated these concepts working together. Now, Achievement 2 takes those backend skills and adds a frontend—transforming the Recipe App into a full-stack web application.
+        </p>
+        <h3>What Changes in Achievement 2</h3>
+        <ul>
+          <li><strong>Interface:</strong> Command-line → Web browser</li>
+          <li><strong>Data Display:</strong> print() statements → HTML templates</li>
+          <li><strong>User Input:</strong> input() prompts → Web forms</li>
+          <li><strong>Data Storage:</strong> Direct database access → Django ORM</li>
+          <li><strong>Project Structure:</strong> Single script files → Organized Django project architecture</li>
+        </ul>
+        <h3>What Stays the Same</h3>
+        <p>
+          The core Python knowledge from Achievement 1 remains essential. Django is still Python—classes, functions, loops, conditionals all work the same way. The OOP principles from Exercise 1.5 directly apply to Django models. The database concepts from Exercise 1.6 underpin Django's ORM. Achievement 2 builds on Achievement 1's foundation rather than replacing it.
+        </p>
+      </div>
+
+      <div class="section" id="section-3">
+        <h2>3) Question 1: Why Django is So Popular</h2>
+        
+        <h3>My Research-Based Answer</h3>
+        <div class="answer-box">
+          <p>
+            Django has become one of the most popular Python web frameworks because it follows a "batteries-included" philosophy that provides everything developers need out of the box—from user authentication and admin panels to form handling and security features. Its Model-View-Template (MVT) architecture promotes rapid development while maintaining clean, maintainable code through clear separation of concerns. Additionally, Django's emphasis on security-by-default protections against common vulnerabilities like SQL injection and cross-site scripting, combined with its scalability (powering platforms like Instagram and Pinterest) and extensive community support, makes it an ideal choice for projects ranging from prototypes to production-ready applications.
+          </p>
+        </div>
+
+        <h3>Deep Dive: Why These Factors Matter</h3>
+        
+        <h4>The "Batteries-Included" Philosophy</h4>
+        <p>
+          Django arrives with built-in solutions for common web development challenges. When I build the Recipe App, I won't need to:
+        </p>
+        <ul>
+          <li>Create a user authentication system from scratch</li>
+          <li>Build an admin interface for managing recipes</li>
+          <li>Implement form validation and CSRF protection manually</li>
+          <li>Write session management code</li>
+          <li>Configure database connections from zero</li>
+        </ul>
+        <p>
+          These features are pre-built and battle-tested. This doesn't just save time—it reduces bugs. The authentication system I'd write myself would likely have security flaws. Django's has been audited by thousands of developers.
+        </p>
+
+        <h4>MVT Architecture Benefits</h4>
+        <p>
+          From my research and course materials, I learned that MVT separates code into three distinct layers:
+        </p>
+        <ul>
+          <li><strong>Models:</strong> Define data structure and database operations</li>
+          <li><strong>Views:</strong> Handle business logic and request processing</li>
+          <li><strong>Templates:</strong> Control presentation and HTML generation</li>
+        </ul>
+        <p>
+          This separation means I can change how recipes display (Templates) without touching the database code (Models). For the Recipe App, this architecture will allow me to modify the visual design without risking data integrity.
+        </p>
+
+        <h4>Security By Default</h4>
+        <p>
+          In Exercise 1.6, I learned about SQL injection the hard way—my original code had a vulnerability using f-strings in queries. Django prevents this automatically through parameterized queries. It also protects against:
+        </p>
+        <ul>
+          <li>Cross-Site Scripting (XSS): User input is escaped automatically</li>
+          <li>Cross-Site Request Forgery (CSRF): Tokens protect form submissions</li>
+          <li>Clickjacking: X-Frame-Options headers prevent iframe exploits</li>
+          <li>SQL Injection: ORM handles query parameterization</li>
+        </ul>
+        <p>
+          These protections work without extra configuration. Security isn't an add-on—it's fundamental to Django's design.
+        </p>
+
+        <h4>Production-Proven Scalability</h4>
+        <p>
+          Knowing that Instagram serves hundreds of millions of users on Django reassured me that the framework won't become a bottleneck as projects grow. Django's architecture supports:
+        </p>
+        <ul>
+          <li>Database query optimization through the ORM</li>
+          <li>Caching strategies at multiple levels</li>
+          <li>Load balancing across multiple servers</li>
+          <li>Asynchronous task processing (for long-running operations)</li>
+        </ul>
+
+        <h4>Community and Ecosystem</h4>
+        <p>
+          Django's large community means:
+        </p>
+        <ul>
+          <li>Comprehensive documentation with real-world examples</li>
+          <li>Thousands of third-party packages for common features</li>
+          <li>Active Stack Overflow presence for troubleshooting</li>
+          <li>Regular security updates and long-term support releases</li>
+          <li>Abundant tutorials and learning resources</li>
+        </ul>
+        <p>
+          When I encountered challenges in Achievement 1, finding solutions sometimes required extensive searching. With Django's popularity, most problems I'll face have documented solutions.
+        </p>
+      </div>
+
+      <div class="section" id="section-4">
+        <h2>4) Question 2: Five Companies Using Django</h2>
+        <p>
+          My research revealed how major tech companies leverage Django's strengths for different use cases. Each company's implementation demonstrates specific Django capabilities at scale.
+        </p>
+
+        <div class="company-card">
+          <h4>1. Instagram</h4>
+          <p><strong>Product/Service:</strong> Social media photo and video sharing platform with over 2 billion users</p>
+          <p><strong>Django Usage:</strong> Instagram uses Django for its entire backend infrastructure, handling user authentication, content feeds, image processing coordination, and the API that powers mobile apps. Despite massive scale, Instagram has maintained Django while optimizing performance through custom caching layers and database sharding. They've contributed significant improvements back to the Django project, particularly around ORM optimization.</p>
+          <p><strong>Why This Matters:</strong> Proves Django scales to billions of operations daily when properly architected.</p>
+        </div>
+
+        <div class="company-card">
+          <h4>2. Mozilla</h4>
+          <p><strong>Product/Service:</strong> Non-profit developer of Firefox web browser and various web services</p>
+          <p><strong>Django Usage:</strong> Mozilla employs Django for multiple projects including addons.mozilla.org (Firefox extension marketplace), support.mozilla.org (customer support portal), and various internal tools. Django's security features align with Mozilla's security-first philosophy, and its admin interface streamlines content management for non-technical staff managing support articles.</p>
+          <p><strong>Why This Matters:</strong> Demonstrates Django's suitability for organizations prioritizing security and open-source values.</p>
+        </div>
+
+        <div class="company-card">
+          <h4>3. Pinterest</h4>
+          <p><strong>Product/Service:</strong> Visual discovery and bookmarking platform with hundreds of millions of monthly users</p>
+          <p><strong>Django Usage:</strong> Pinterest's entire web application runs on Django, managing user accounts, pin storage and retrieval, board organization, and recommendation algorithms. They use Django's template system for server-side rendering and Django REST Framework for their mobile APIs. Pinterest has also open-sourced several Django-related tools they developed internally.</p>
+          <p><strong>Why This Matters:</strong> Shows Django handling complex recommendation systems and high-traffic image-heavy workloads.</p>
+        </div>
+
+        <div class="company-card">
+          <h4>4. Spotify</h4>
+          <p><strong>Product/Service:</strong> Music streaming service with over 500 million users</p>
+          <p><strong>Django Usage:</strong> While Spotify's core streaming infrastructure uses other technologies, Django powers their internal tools, data analytics dashboards, and backend services for managing artist profiles, playlist metadata, and content management. Django's rapid development capabilities allow Spotify's internal teams to build and iterate on tools quickly.</p>
+          <p><strong>Why This Matters:</strong> Illustrates Django's effectiveness for internal tooling and data-intensive applications.</p>
+        </div>
+
+        <div class="company-card">
+          <h4>5. NASA</h4>
+          <p><strong>Product/Service:</strong> United States space agency managing space exploration programs and scientific research</p>
+          <p><strong>Django Usage:</strong> NASA uses Django for various public-facing websites and internal project management systems. Notable implementations include portions of nasa.gov for content management, mission data visualization dashboards, and collaborative tools for research teams. Django's stability and Python integration suit NASA's data-heavy workflows and scientific computing needs.</p>
+          <p><strong>Why This Matters:</strong> Demonstrates Django's reliability for mission-critical government applications and scientific data management.</p>
+        </div>
+
+        <h3>Common Patterns Across Companies</h3>
+        <p>
+          Analyzing these five companies revealed consistent reasons for choosing Django:
+        </p>
+        <ul>
+          <li><strong>Rapid Development:</strong> All emphasized Django's speed-to-market advantages</li>
+          <li><strong>Python Ecosystem:</strong> Integration with data science and ML libraries (NumPy, pandas, TensorFlow)</li>
+          <li><strong>ORM Benefits:</strong> Database-agnostic code that adapts as data needs evolve</li>
+          <li><strong>Admin Interface:</strong> Non-engineers can manage content without custom tools</li>
+          <li><strong>Security Track Record:</strong> Critical for user-facing applications</li>
+        </ul>
+      </div>
+
+      <div class="section" id="section-5">
+        <h2>5) Question 3: Django Usage Scenarios</h2>
+        <p>
+          This question required evaluating Django's appropriateness for five different project scenarios. My analysis considered Django's strengths (rapid development, security, scalability) against its limitations (overhead for simple projects, opinionated structure).
+        </p>
+
+        <h3>Scenario A: Multiple Users</h3>
+        <div class="answer-box">
+          <p><strong>Decision: YES, use Django</strong></p>
+          <p>
+            Django excels at multi-user applications because it includes robust, production-ready user authentication and authorization systems out of the box. The framework handles user registration, login/logout, password management (including secure hashing), session management, and permission systems without requiring custom implementation. For a multi-user Recipe App, Django would manage user accounts, ensure each user sees only their recipes, and handle concurrent database access safely. The alternative—building authentication from scratch—would be time-consuming and likely less secure than Django's battle-tested implementation used by Instagram and Pinterest.
+          </p>
+        </div>
+
+        <h3>Scenario B: Fast Deployment with Iterative Changes</h3>
+        <div class="answer-box">
+          <p><strong>Decision: YES, use Django</strong></p>
+          <p>
+            Django's "batteries-included" philosophy specifically targets rapid prototyping and iterative development. The built-in admin interface provides immediate CRUD functionality for data models without writing a single admin view—I can start testing with real data immediately. Django's migrations system tracks database schema changes, allowing me to modify data models as requirements evolve without manual SQL. The template system enables quick UI iterations, and Django's development server provides instant feedback. For projects where requirements might shift based on user feedback, Django's flexibility in adapting existing code (while maintaining the MVT structure) accelerates iteration cycles significantly.
+          </p>
+        </div>
+
+        <h3>Scenario C: Very Basic Application (No Database/Files)</h3>
+        <div class="answer-box">
+          <p><strong>Decision: NO, Django is overkill</strong></p>
+          <p>
+            For a basic application without database access or file operations, Django's overhead isn't justified. Installing Django brings numerous dependencies (database connectors, template engines, security middleware) that won't be used. A simple Python script or a lightweight framework like Flask would be more appropriate. For example, a basic calculator or text formatter doesn't need Django's ORM, migrations, admin interface, or MVT architecture. The setup time alone (creating project structure, configuring settings) would exceed the development time for the actual functionality. Django shines when its built-in features solve real problems; for simple scripts, it adds complexity without corresponding benefits.
+          </p>
+        </div>
+
+        <h3>Scenario D: Build from Scratch with Maximum Control</h3>
+        <div class="answer-box">
+          <p><strong>Decision: DEPENDS - Probably NO</strong></p>
+          <p>
+            Django's opinionated "Django Way" is both a strength and limitation. The framework makes architectural decisions for you—MVT structure, ORM-based database access, specific URL routing patterns, Django template language. If your project requires unconventional architecture or you want granular control over every component, Django's conventions might feel restrictive. For example, using a different template engine or ORM requires working against Django's defaults. Frameworks like Flask or FastAPI offer more flexibility, letting you choose exactly which components to include. However, "maximum control" often means building infrastructure Django provides for free. The question becomes: do you want control over implementation details, or do you want to focus on building unique application features? For most projects, Django's conventions accelerate development. But for highly specialized applications with unusual requirements, lighter frameworks or even framework-less approaches might be preferable.
+          </p>
+        </div>
+
+        <h3>Scenario E: Large Project with Support Needs</h3>
+        <div class="answer-box">
+          <p><strong>Decision: YES, definitely use Django</strong></p>
+          <p>
+            For large projects where getting stuck could derail development, Django's ecosystem is a major asset. The comprehensive official documentation covers common scenarios with working examples. Stack Overflow has over 300,000 Django-tagged questions with detailed answers. The active community means security vulnerabilities get patched quickly, and long-term support (LTS) releases provide stability for production applications. Third-party packages exist for nearly every common feature (REST APIs via Django REST Framework, e-commerce via Django Oscar, CMS capabilities via Wagtail). If I encounter a Django problem, chances are high someone has solved it and documented the solution. For large projects, this support ecosystem reduces risk significantly—problems that might block development for days in less popular frameworks often have documented Django solutions.
+          </p>
+        </div>
+
+        <h3>Analysis Summary</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Use Django?</th>
+              <th>Key Reasoning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Multiple Users</td>
+              <td>✅ YES</td>
+              <td>Built-in authentication, authorization, session management</td>
+            </tr>
+            <tr>
+              <td>Fast Deployment</td>
+              <td>✅ YES</td>
+              <td>Admin interface, migrations, rapid prototyping capabilities</td>
+            </tr>
+            <tr>
+              <td>Very Basic App</td>
+              <td>❌ NO</td>
+              <td>Unnecessary overhead, simpler solutions available</td>
+            </tr>
+            <tr>
+              <td>Maximum Control</td>
+              <td>⚠️ DEPENDS</td>
+              <td>Opinionated structure trades control for convenience</td>
+            </tr>
+            <tr>
+              <td>Large Project</td>
+              <td>✅ YES</td>
+              <td>Extensive documentation, community support, proven scalability</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section" id="section-6">
+        <h2>6) MVT vs MVC Architecture</h2>
+        <p>
+          Understanding the relationship between Django's MVT and the traditional MVC pattern clarified how Django organizes code and why certain components have specific names.
+        </p>
+        <h3>MVC Architecture (Traditional)</h3>
+        <ul>
+          <li><strong>Model:</strong> Data layer (database interaction)</li>
+          <li><strong>View:</strong> Presentation layer (what users see)</li>
+          <li><strong>Controller:</strong> Logic layer (connects model and view)</li>
+        </ul>
+        <p>
+          In MVC, the developer writes controller code to fetch data from the model, process it, and send it to the view. This gives maximum control but requires more manual work.
+        </p>
+        <h3>MVT Architecture (Django)</h3>
+        <ul>
+          <li><strong>Model:</strong> Data layer (same as MVC)</li>
+          <li><strong>View:</strong> Logic layer (what MVC calls "Controller")</li>
+          <li><strong>Template:</strong> Presentation layer (what MVC calls "View")</li>
+        </ul>
+        <p>
+          Django's terminology is confusing at first: its "View" is actually controller logic, and its "Template" is the presentation layer. Django handles URL routing automatically, reducing boilerplate code. The framework itself acts as the controller, directing requests to appropriate views.
+        </p>
+        <h3>Comparison Table</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>MVC</th>
+              <th>MVT (Django)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Data Handling</td>
+              <td>Model</td>
+              <td>Model</td>
+            </tr>
+            <tr>
+              <td>Business Logic</td>
+              <td>Controller</td>
+              <td>View</td>
+            </tr>
+            <tr>
+              <td>Presentation</td>
+              <td>View</td>
+              <td>Template</td>
+            </tr>
+            <tr>
+              <td>URL Routing</td>
+              <td>Developer writes</td>
+              <td>Framework handles</td>
+            </tr>
+            <tr>
+              <td>Control Flow</td>
+              <td>Controller manages</td>
+              <td>Django framework manages</td>
+            </tr>
+            <tr>
+              <td>Coupling</td>
+              <td>Tightly coupled</td>
+              <td>Loosely coupled</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Practical Implication for Recipe App</h3>
+        <p>
+          When I build the Recipe App in Django:
+        </p>
+        <ul>
+          <li><strong>Model:</strong> Defines Recipe class with fields (name, ingredients, cooking_time, difficulty)</li>
+          <li><strong>View:</strong> Handles requests like "show all recipes" or "search for recipes with eggs"</li>
+          <li><strong>Template:</strong> HTML files that define how recipes display in the browser</li>
+          <li><strong>Django:</strong> Routes URLs to correct views, manages request/response cycle</li>
+        </ul>
+      </div>
+
+      <div class="section" id="section-7">
+        <h2>7) Technical Setup Process</h2>
+        <p>
+          The hands-on portion of Exercise 2.1 involved setting up a new virtual environment specifically for Achievement 2 and installing Django 5.x.
+        </p>
+        <h3>Virtual Environment: achievement2-practice</h3>
+        <p>
+          Creating a fresh virtual environment for Achievement 2 isolates Django dependencies from Achievement 1's command-line tools. This separation follows professional practice—production projects always use isolated environments to prevent dependency conflicts.
+        </p>
+        <div class="code-block">
+# Navigate to Achievement 2 directory
+cd "~/OneDrive/Documents/careerfoundry/PYTHON_COURSE/Achievement 2"
+
+# Create environment
+python -m venv achievement2-practice
+
+# Activate (Git Bash)
+source achievement2-practice/Scripts/activate
+
+# Verify
+python --version  # Should show 3.13.5
+which python      # Should point to venv
+        </div>
+
+        <h3>Django 5.x Installation</h3>
+        <p>
+          Django installation was straightforward using pip. The key difference from Achievement 1: we're installing a complete framework with its own command-line tools (django-admin) for project creation and management.
+        </p>
+        <div class="code-block">
+# Upgrade pip first
+python -m pip install --upgrade pip
+
+# Install Django
+pip install django
+
+# Verify installation
+django-admin --version  # Shows 5.x.x (current stable)
+        </div>
+
+        <h3>Screenshots Captured</h3>
+        <ul>
+          <li><strong>Screenshot 1:</strong> Python 3.13.5 verification showing version command and output</li>
+          <li><strong>Screenshot 2:</strong> Activated virtual environment with (achievement2-practice) prefix visible in prompt</li>
+          <li><strong>Screenshot 3:</strong> Django installation success message showing version 5.x.x installed and django-admin verification</li>
+        </ul>
+
+        <h3>Verification Commands</h3>
+        <p>
+          After installation, I verified everything worked correctly:
+        </p>
+        <div class="code-block">
+# Check Python version in venv
+python --version
+# Output: Python 3.13.5
+
+# Check Django installation
+django-admin --version
+# Output: 5.1.2 (or current version)
+
+# Check installed packages
+pip list
+# Shows django and dependencies
+
+# Verify django-admin tool works
+django-admin help
+# Shows available commands
+        </div>
+      </div>
+
+      <div class="section" id="section-8">
+        <h2>8) Version Adaptation Notes</h2>
+        <p>
+          Exercise 2.1 required adapting course materials written for Python 3.8.7 and Django 3.2.4 to current versions: Python 3.13.5 and Django 5.x. This version gap presented both challenges and learning opportunities.
+        </p>
+        <h3>Python 3.8.7 → 3.13.5 Differences</h3>
+        <ul>
+          <li>Improved error messages with better context and suggestions</li>
+          <li>Performance optimizations (faster startup, better memory usage)</li>
+          <li>Enhanced type hinting capabilities (not required for Django basics)</li>
+          <li>Security improvements in standard library</li>
+          <li>No breaking changes affecting basic Django development</li>
+        </ul>
+        <h3>Django 3.2.4 → 5.x Major Changes</h3>
+        <ul>
+          <li><strong>Python version requirements:</strong> Django 5.x requires Python 3.10+ (we have 3.13.5)</li>
+          <li><strong>Async support:</strong> Enhanced asynchronous views and middleware (advanced feature)</li>
+          <li><strong>ORM improvements:</strong> Better query generation and optimization (transparent benefits)</li>
+          <li><strong>Admin interface:</strong> Modern responsive design (actually easier to use)</li>
+          <li><strong>Security:</strong> Additional protections and updated default configurations</li>
+          <li><strong>Deprecation removals:</strong> Some old Django 2.x syntax no longer supported</li>
+        </ul>
+        <h3>Why Current Versions Are Better</h3>
+        <p>
+          Working with Python 3.13.5 and Django 5.x rather than 2021 versions provides:
+        </p>
+        <ul>
+          <li><strong>Current best practices:</strong> Learning syntax that's currently recommended</li>
+          <li><strong>Security patches:</strong> Protection against vulnerabilities discovered since 2021</li>
+          <li><strong>Better tooling:</strong> Modern error messages and debugging features</li>
+          <li><strong>Job market relevance:</strong> Skills directly applicable to new projects</li>
+          <li><strong>Future-proofing:</strong> Code written for Django 5.x will be supported longer</li>
+        </ul>
+        <h3>Adaptation Strategy for Future Exercises</h3>
+        <p>
+          When course instructions reference Django 3.2.4 syntax that differs in 5.x:
+        </p>
+        <ol>
+          <li>Check official Django 5.x documentation for current syntax</li>
+          <li>Search for "Django 5.x [feature name]" if errors occur</li>
+          <li>Test code incrementally to catch version-specific issues early</li>
+          <li>Document all adaptations in learning journals</li>
+          <li>Seek guidance when deprecated features are required</li>
+        </ol>
+        <h3>Expected Differences in Upcoming Exercises</h3>
+        <p>
+          Based on Django release notes, I anticipate these changes:
+        </p>
+        <ul>
+          <li><strong>URL patterns:</strong> Some old path() syntax deprecated (will use current syntax)</li>
+          <li><strong>Template tags:</strong> Minor changes in built-in filters (documentation will guide)</li>
+          <li><strong>Admin customization:</strong> New options available in Django 5.x (bonus features)</li>
+          <li><strong>Forms:</strong> Enhanced validation options (improvements, not obstacles)</li>
+        </ul>
+      </div>
+
+      <div class="section" id="section-9">
+        <h2>9) Challenges & Solutions</h2>
+        
+        <div class="challenge-item">
+          <div class="challenge-title">Understanding MVT vs MVC Terminology</div>
+          <p>
+            <strong>Challenge:</strong> Django's naming convention confused me initially—calling the controller logic a "View" and the presentation layer a "Template" seemed backwards from what I'd read about MVC architecture.<br />
+            <span class="solution">Solution:</span> Created a mental map focusing on functionality rather than names: Model = data, View (Django) = logic/controller, Template = presentation. Realized Django's naming is just different terminology for the same architectural pattern. The framework itself acts as the traditional controller, routing requests to views.
+          </p>
+        </div>
+
+        <div class="challenge-item">
+          <div class="challenge-title">Evaluating "The Django Way" Trade-offs</div>
+          <p>
+            <strong>Challenge:</strong> Scenario D required evaluating whether Django's opinionated structure is a benefit or limitation. Initially, I leaned toward "more control is always better."<br />
+            <span class="solution">Solution:</span> Realized this is a classic "convenience vs. control" trade-off. Django optimizes for 90% of use cases where its conventions accelerate development. For the 10% of projects with unusual requirements, other frameworks might be better. Most importantly, I understood that "control" often means reimplementing features Django provides—not necessarily a win.
+          </p>
+        </div>
+
+        <div class="challenge-item">
+          <div class="challenge-title">Virtual Environment Activation in Git Bash</div>
+          <p>
+            <strong>Challenge:</strong> Course shows virtualenvwrapper commands (mkvirtualenv, workon) that don't work in Git Bash on Windows. These tools are designed for Command Prompt or Unix shells.<br />
+            <span class="solution">Solution:</span> Used built-in venv module: <code>python -m venv achievement2-practice</code> then <code>source achievement2-practice/Scripts/activate</code>. This approach works across all platforms (Windows Git Bash, Mac, Linux) without additional dependencies. More portable and just as effective.
+          </p>
+        </div>
+
+        <div class="challenge-item">
+          <div class="challenge-title">Version Number Discrepancies</div>
+          <p>
+            <strong>Challenge:</strong> Course materials show Django 3.2.4; my screenshots show 5.1.2. Worried this might seem like an error in my submission.<br />
+            <span class="solution">Solution:</span> Documented explicitly in this journal that version differences are expected, correct, and actually beneficial. Explained why using current versions (better security, modern features, job market relevance) is professional practice. This demonstrates awareness of version management—a critical development skill.
+          </p>
+        </div>
+
+        <div class="challenge-item">
+          <div class="challenge-title">Researching Real-World Django Usage</div>
+          <p>
+            <strong>Challenge:</strong> Finding specific details about HOW companies use Django (not just that they use it) required deeper research. Many articles just list "Instagram uses Django" without details.<br />
+            <span class="solution">Solution:</span> Consulted multiple sources: company engineering blogs, conference talks, StackShare tech stack documentation, and Django community case studies. This multi-source approach provided concrete implementation details rather than vague statements.
+          </p>
+        </div>
+
+        <div class="challenge-item">
+          <div class="challenge-title">Distinguishing When NOT to Use Django</div>
+          <p>
+            <strong>Challenge:</strong> After learning Django's strengths, it was tempting to see it as universally appropriate. Scenario C forced me to think critically about when Django is overkill.<br />
+            <span class="solution">Solution:</span> Realized that frameworks exist to solve problems. For projects without the problems Django solves (no database, no users, no forms), the framework adds complexity without benefits. This taught me to match tools to requirements rather than defaulting to familiar solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="section" id="section-10">
+        <h2>10) Key Takeaways</h2>
+        
+        <h3>Conceptual Understanding</h3>
+        <ul>
+          <li>Django is a framework that provides structure and conventions, not just a library of functions</li>
+          <li>MVT architecture (despite confusing naming) effectively separates data, logic, and presentation</li>
+          <li>"Batteries included" means comprehensive built-in functionality, reducing custom code</li>
+          <li>Framework selection depends on project requirements—no universal "best" framework exists</li>
+          <li>Understanding trade-offs (speed vs. control, convenience vs. flexibility) is crucial for architecture decisions</li>
+          <li>Security-by-default features prevent common vulnerabilities without manual implementation</li>
+        </ul>
+
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Creating project-specific isolated virtual environments with venv</li>
+          <li>Installing and verifying framework installations (django-admin command)</li>
+          <li>Adapting instructions for outdated versions to current stable releases</li>
+          <li>Documenting version differences systematically for future reference</li>
+          <li>Using pip to manage Python package dependencies</li>
+        </ul>
+
+        <h3>Research & Analysis Skills</h3>
+        <ul>
+          <li>Evaluating framework appropriateness based on specific project requirements</li>
+          <li>Finding and synthesizing information from multiple authoritative sources</li>
+          <li>Comparing architectural patterns (MVC vs MVT) to understand underlying principles</li>
+          <li>Articulating technical concepts clearly and concisely in writing</li>
+          <li>Identifying when NOT to use a tool is as important as knowing when to use it</li>
+        </ul>
+
+        <h3>Professional Practices</h3>
+        <ul>
+          <li>Using current stable versions rather than blindly following outdated materials</li>
+          <li>Documenting environment setup systematically with verification screenshots</li>
+          <li>Creating reproducible development environments for collaboration</li>
+          <li>Recognizing tool limitations and trade-offs, not just benefits</li>
+          <li>Version management and compatibility awareness across software dependencies</li>
+        </ul>
+
+        <h3>Connection to Achievement 1</h3>
+        <p>
+          The Python fundamentals from Achievement 1 remain essential:
+        </p>
+        <ul>
+          <li>OOP from Exercise 1.5 applies directly to Django Models</li>
+          <li>Database concepts from Exercise 1.6 underpin Django's ORM</li>
+          <li>Function and control flow understanding from Exercise 1.3 applies to Views</li>
+          <li>Error handling from Exercise 1.4 extends to Django exception handling</li>
+        </ul>
+      </div>
+
+      <div class="section" id="section-11">
+        <h2>11) AI Assistance Declaration</h2>
+        <p>
+          This exercise was completed through guided, checkpoint-based learning with AI assistance serving as an interactive tutor for version adaptation, research guidance, and conceptual clarification.
+        </p>
+        
+        <h3>How AI Assisted the Learning Process</h3>
+        <ul>
+          <li>
+            <strong>Version translation:</strong> AI helped adapt course materials from Python 3.8.7/Django 3.2.4 to Python 3.13.5/Django 5.x, explaining which changes affect functionality vs. which are cosmetic
+          </li>
+          <li>
+            <strong>Conceptual explanations:</strong> AI clarified MVT vs MVC architecture differences with concrete examples and analogies, making abstract patterns tangible
+          </li>
+          <li>
+            <strong>Research guidance:</strong> AI suggested authoritative sources (engineering blogs, Django documentation, case studies) for company Django usage research
+          </li>
+          <li>
+            <strong>Scenario analysis framework:</strong> AI helped structure my thinking about when Django is/isn't appropriate by identifying relevant factors (security needs, scalability, development speed)
+          </li>
+          <li>
+            <strong>Virtual environment tooling:</strong> AI explained why venv is preferred over virtualenvwrapper for cross-platform compatibility, especially in Git Bash
+          </li>
+          <li>
+            <strong>Answer refinement:</strong> AI reviewed draft answers for technical accuracy and completeness, suggesting improvements while I maintained final wording
+          </li>
+        </ul>
+
+        <h3>Independent Work Completed</h3>
+        <ul>
+          <li>Researched Django's popularity factors from official documentation and community resources</li>
+          <li>Investigated five companies' Django implementations through engineering blogs and tech talks</li>
+          <li>Analyzed all five scenarios independently, forming opinions before consulting AI</li>
+          <li>Created virtual environment and installed Django following adapted instructions</li>
+          <li>Captured all required screenshots with correct naming and organization</li>
+          <li>Wrote all final answers in my own words based on research and understanding</li>
+          <li>Exported professional PDF document with proper formatting</li>
+          <li>Generated this comprehensive learning journal documenting the complete process</li>
+        </ul>
+
+        <h3>Collaborative Learning Approach</h3>
+        <p>
+          The checkpoint-based tutorial structure allowed systematic progress through theoretical research and technical setup. AI served multiple roles:
+        </p>
+        <ul>
+          <li><strong>Version translator:</strong> Bridging gaps between 2021 course materials and 2025 current versions</li>
+          <li><strong>Research librarian:</strong> Suggesting authoritative sources rather than just providing answers</li>
+          <li><strong>Conceptual tutor:</strong> Explaining "why" behind Django's design decisions</li>
+          <li><strong>Code reviewer:</strong> Verifying installation steps worked correctly</li>
+        </ul>
+        <p>
+          This mirrors how professional developers learn new frameworks—through documentation, tutorials, and peer discussion—accelerated by having an always-available technical resource.
+        </p>
+
+        <h3>Skills Beyond Django</h3>
+        <p>
+          This exercise reinforced meta-skills as valuable as Django knowledge itself:
+        </p>
+        <ul>
+          <li>Adapting outdated documentation to current software versions</li>
+          <li>Evaluating when tools are appropriate vs. when simpler solutions suffice</li>
+          <li>Synthesizing information from multiple sources to form comprehensive understanding</li>
+          <li>Documenting technical decisions and rationales for future reference</li>
+          <li>Asking "when NOT to use this tool?" alongside "when to use it?"</li>
+        </ul>
+        <p>
+          These skills—knowing how to learn when materials are dated, how to evaluate tools critically—transfer across all technology learning scenarios.
+        </p>
+      </div>
+
+      <div class="section" id="section-12">
+        <h2>12) Looking Forward to Exercise 2.2</h2>
+        <p>
+          Exercise 2.1 established Django's conceptual foundation. Understanding WHY the framework exists and WHEN it's appropriate provides context for everything ahead. With the development environment configured and theoretical knowledge solidified, Exercise 2.2 will introduce practical Django implementation.
+        </p>
+        
+        <h3>What's Next</h3>
+        <ul>
+          <li>Using <code>django-admin startproject</code> to create the Recipe App project structure</li>
+          <li>Exploring Django's directory organization (manage.py, settings.py, urls.py, wsgi.py)</li>
+          <li>Understanding the Django project vs. Django app distinction</li>
+          <li>Creating the first Django app within the project</li>
+          <li>Implementing initial views and URL routing</li>
+          <li>Running the Django development server</li>
+        </ul>
+
+        <h3>Connections to Achievement 1</h3>
+        <p>
+          The Recipe App from Achievement 1 will be systematically rebuilt as a Django web application:
+        </p>
+        <ul>
+          <li><strong>Data (Exercise 1.2-1.4):</strong> Recipe dictionaries → Django Models</li>
+          <li><strong>Logic (Exercise 1.3-1.5):</strong> Functions → Django Views</li>
+          <li><strong>Storage (Exercise 1.6-1.7):</strong> MySQL/SQLAlchemy → Django ORM</li>
+          <li><strong>Interface (Exercise 1.3-1.4):</strong> Command-line → Web templates</li>
+          <li><strong>Operations (Exercise 1.6):</strong> CRUD functions → Django views and forms</li>
+        </ul>
+
+        <h3>Anticipated Challenges</h3>
+        <ul>
+          <li><strong>Django "magic":</strong> Understanding what happens automatically vs. explicitly</li>
+          <li><strong>Project structure:</strong> Knowing where different code types belong</li>
+          <li><strong>Request-response cycle:</strong> Shifting from procedural scripts to web request handling</li>
+          <li><strong>MVT in practice:</strong> Seeing how Models, Views, and Templates interact</li>
+          <li><strong>Django conventions:</strong> Following "The Django Way" for URLs, views, and templates</li>
+        </ul>
+
+        <h3>Confidence Assessment</h3>
+        <p>
+          After completing all of Achievement 1 and successfully navigating Exercise 2.1's version adaptations, I feel prepared for Django development. The research phase demystified Django—it's MVT architecture solving problems I already understand (data management, user authentication, secure input handling) with battle-tested solutions.
+        </p>
+        <p>
+          Understanding that Django automates much of what I manually coded in Achievement 1 (SQL queries, error handling, data validation) clarifies what I'm learning: how to leverage framework abstractions effectively rather than reimplementing everything from scratch.
+        </p>
+        <p>
+          The theoretical foundation from Exercise 2.1 will make Exercise 2.2's practical implementation more intuitive—I'll recognize WHY Django structures projects the way it does, not just HOW to follow the structure.
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="status-box">
+        Exercise 2.1 Complete: Django conceptual foundation established, environment configured with Python 3.13.5 and Django 5.x, theoretical knowledge documented and researched. Ready for Exercise 2.2: Django project creation and structure.
+      </div>
+
+      <div class="page-footer">
+        <div class="social-links">
+          <a href="https://ivan-cortes-portfolio-v1.onrender.com/" target="_blank">Portfolio</a>
+          <a href="https://www.linkedin.com/in/ivan-cortes-murcia-22053953/" target="_blank">LinkedIn</a>
+          <a href="https://x.com/IVENCOMUR" target="_blank">Twitter</a>
+          <a href="https://github.com/ivencomur" target="_blank">GitHub</a>
+        </div>
+        <p>
+          <a href="https://github.com/ivencomur/PYTHON_COURSE" target="_blank">Project Repository</a>
+        </p>
+        <p>Python for Web Developers @ CareerFoundry 2025</p>
+      </div>
+    </div>
+
+    <div class="floating-nav">
+      <a href="../index.html" title="Go to Home">🏠</a>
+      <a href="javascript:history.back()" title="Go Back">⬅️</a>
+    </div>
+  </body>
+</html>

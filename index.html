@@ -49,16 +49,7 @@
 
       .page-header h1 {
         color: #fff;
-        border-bottom: none;
         margin-bottom: 5px;
-      }
-
-      h1 {
-        color: var(--alt-grid-item-text-color);
-        font-size: 28px;
-        margin-bottom: 10px;
-        border-bottom: 3px solid var(--primary-color);
-        padding-bottom: 10px;
       }
 
       .header-info {
@@ -73,66 +64,25 @@
 
       h2 {
         color: var(--alt-grid-item-text-color);
-        font-size: 20px;
-        margin-top: 30px;
-        margin-bottom: 15px;
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 10px;
         padding-bottom: 5px;
         border-bottom: 2px solid var(--primary-color);
       }
 
-      p {
-        margin-bottom: 12px;
-        text-align: justify;
-      }
+      p { margin-bottom: 12px; }
+      ul { margin-left: 20px; }
+      li { margin-bottom: 8px; }
 
-      ul {
-        margin-left: 25px;
-        margin-bottom: 15px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .journal-links ul {
-        list-style: none;
-        padding: 0;
-        margin-left: 0;
-      }
-
-      .journal-links li {
-        background-color: var(--secondary-color);
-        border: 1px solid #ddd;
-        border-left: 5px solid var(--primary-color);
-        margin-bottom: 10px;
-        padding: 15px;
-        border-radius: 5px;
-        transition: transform 0.2s;
-      }
-
-      .journal-links li:hover {
-        transform: scale(1.02);
-      }
-
-      .journal-links a {
+      a {
+        color: var(--customized-orange-light-bg);
         text-decoration: none;
         font-weight: bold;
-        font-size: 18px;
-        color: var(--customized-orange-light-bg);
       }
-
-      .journal-links a:hover {
+      a:hover {
         color: var(--primary-hover-color);
-      }
-
-      .section {
-        margin-bottom: 35px;
-      }
-
-      hr {
-        border: none;
-        border-top: 2px solid var(--primary-color);
-        margin: 30px 0;
+        text-decoration: underline;
       }
 
       .page-footer {
@@ -142,30 +92,14 @@
         text-align: center;
         margin: 30px -0.75in -0.75in -0.75in;
       }
-
       .page-footer a {
         color: var(--customized-orange-dark-bg);
         font-weight: bold;
         text-decoration: none;
       }
-
       .page-footer a:hover {
         color: #fff;
         text-decoration: underline;
-      }
-
-      .page-footer .social-links {
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-
-      .page-footer .social-links a {
-        margin: 0 10px;
-      }
-
-      .page-footer p {
-        text-align: center;
-        margin-bottom: 8px;
       }
 
       .floating-nav {
@@ -199,10 +133,7 @@
       }
 
       @media print {
-        body {
-          background: white;
-          padding: 0;
-        }
+        body { background: white; padding: 0; }
         .container {
           max-width: 100%;
           width: 8.5in;
@@ -210,13 +141,7 @@
           box-shadow: none;
           margin: 0;
         }
-        @page {
-          size: letter;
-          margin: 0.75in;
-        }
-        .floating-nav {
-          display: none;
-        }
+        @page { size: letter; margin: 0.75in; }
       }
     </style>
   </head>
@@ -225,59 +150,72 @@
       <div class="page-header">
         <h1>Python Learning Journals</h1>
         <div class="header-info">
-          <strong>Name:</strong> Ivan Cortes<br />
-          <strong>Course:</strong> CareerFoundry – Python for Web Developers<br />
-          <strong>Repository:</strong> Achievement 1 Portfolio
+          <strong>Student:</strong> Ivan Cortes ·
+          <strong>Course:</strong> CareerFoundry — Python for Web Developers
         </div>
       </div>
 
-      <hr />
-
+      <!-- About section updated to include Full-Stack course + Python track -->
       <div class="section">
         <h2>About This Repository</h2>
         <p>
-          This repository contains the learning journals and project files for
-          my journey through the CareerFoundry Python for Web Developers course.
-          Each journal documents my process, challenges, and key takeaways for
-          the exercises.
+          This repository tracks learning journals and exercise artifacts across two parallel
+          CareerFoundry pathways: <em>Full-Stack Web Developer</em> (frontend foundations & application
+          development) and <em>Python for Web Developers</em> (backend foundations with Django).
+          Each journal captures goals, takeaways, pitfalls, and next steps in a concise, beginner-friendly format.
         </p>
+
+        <p><strong>Full-Stack Web Developer — Highlights</strong></p>
+        <ul>
+          <li>Frontend fundamentals: semantic HTML5, CSS3 (Flexbox/Grid), responsive design, and accessibility.</li>
+          <li>JavaScript (ES6+): modules, async flow (promises/async-await), DOM APIs, and data fetching.</li>
+          <li>Framework practice: React/Angular exercises (components, routing, state), plus build tooling (Node.js, npm).</li>
+          <li>Version control & workflows: Git/GitHub, branching strategies, code reviews, and documentation standards.</li>
+          <li>Portfolio & case studies: iterative UX thinking and deployment basics.</li>
+        </ul>
+
+        <p><strong>Python for Web Developers — Achievement 1: Foundations (Exercises 1.1–1.7)</strong></p>
+        <ul>
+          <li>Core Python: data types, control flow, functions, modules, and error handling.</li>
+          <li>OOP essentials and practical file/database I/O.</li>
+          <li>Environment setup (venv, pip) and VS Code workflow.</li>
+          <li>CLI “Recipe” app: incremental design, refactors, and testing essentials.</li>
+        </ul>
+
+        <p><strong>Python for Web Developers — Achievement 2: Web Development &amp; Django</strong></p>
+        <ul>
+          <li><strong>Exercise 2.1:</strong> MVT vs MVC, Django benefits/constraints; install &amp; verify in a clean venv; scenarios for when to use Django.</li>
+          <li>Next up: project structure, URL routing, views/templates, and first rendered page.</li>
+        </ul>
       </div>
 
       <div class="section journal-links">
         <h2>Learning Journals</h2>
         <p>Please select a journal to view the details of each exercise.</p>
+
+        <!-- Original list preserved; only grouped by Achievements and appended Ach 2 -->
+        <h3>Achievement 1</h3>
         <ul>
-          <li>
-            <a href="LEARNING_JOURNAL1.html">📘 Learning Journal - Exercise 1.1</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL2.html">📗 Learning Journal - Exercise 1.2</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL3.html">📙 Learning Journal - Exercise 1.3</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL4.html">📕 Learning Journal - Exercise 1.4</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL5.html">📔 Learning Journal - Exercise 1.5</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL6.html">📖 Learning Journal - Exercise 1.6</a>
-          </li>
-          <li>
-            <a href="LEARNING_JOURNAL7.html">📚 Learning Journal - Exercise 1.7</a>
-          </li>
+          <li><a href="LEARNING_JOURNAL1.html">📘 Learning Journal - Exercise 1.1</a></li>
+          <li><a href="LEARNING_JOURNAL2.html">📗 Learning Journal - Exercise 1.2</a></li>
+          <li><a href="LEARNING_JOURNAL3.html">📙 Learning Journal - Exercise 1.3</a></li>
+          <li><a href="LEARNING_JOURNAL4.html">📕 Learning Journal - Exercise 1.4</a></li>
+          <li><a href="LEARNING_JOURNAL5.html">📔 Learning Journal - Exercise 1.5</a></li>
+          <li><a href="LEARNING_JOURNAL6.html">📖 Learning Journal - Exercise 1.6</a></li>
+          <li><a href="LEARNING_JOURNAL7.html">📚 Learning Journal - Exercise 1.7</a></li>
+        </ul>
+
+        <h3>Achievement 2</h3>
+        <ul>
+          <li><a href="LEARNING_JOURNAL7.html">📚 Learning Journal - Exercise 2.1 (Getting Started with Django)</a></li>
         </ul>
       </div>
 
-      <hr />
-
       <div class="page-footer">
         <div class="social-links">
-          <a href="https://ivan-cortes-portfolio-v1.onrender.com/" target="_blank">Portfolio</a>
-          <a href="https://www.linkedin.com/in/ivan-cortes-murcia-22053953/" target="_blank">LinkedIn</a>
-          <a href="https://x.com/IVENCOMUR" target="_blank">Twitter</a>
+          <a href="https://ivan-cortes-portfolio-v1.onrender.com/" target="_blank">Portfolio</a> ·
+          <a href="https://www.linkedin.com/in/ivan-cortes-murcia-22053953/" target="_blank">LinkedIn</a> ·
+          <a href="https://x.com/IVENCOMUR" target="_blank">Twitter</a> ·
           <a href="https://github.com/ivencomur" target="_blank">GitHub</a>
         </div>
         <p>

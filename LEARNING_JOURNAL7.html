@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Journal - Exercise 1.7</title>
+    <title>Learning Journal – Exercise 2.1</title>
     <style>
       :root {
         --primary-color: #20504b;
@@ -11,6 +11,7 @@
         --secondary-color: #f4f4f4;
         --text-color: #333;
         --grid-item-bg-color: #2c3e50;
+        --grid-item-text-color: #ffffff;
         --alt-grid-item-text-color: #0056b3;
         --customized-orange-light-bg: #b46100;
         --customized-orange-dark-bg: #ffa061;
@@ -154,48 +155,7 @@
         border-radius: 3px;
       }
 
-      .challenge-item {
-        margin-bottom: 20px;
-      }
-
-      .challenge-title {
-        font-weight: bold;
-        color: var(--customized-orange-light-bg);
-        margin-bottom: 5px;
-      }
-
-      .solution {
-        color: var(--primary-color);
-        font-weight: bold;
-      }
-
-      .section {
-        margin-bottom: 35px;
-      }
-
-      .comparison-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-      }
-
-      .comparison-table th,
-      .comparison-table td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
-      }
-
-      .comparison-table th {
-        background-color: var(--primary-color);
-        color: white;
-      }
-
-      .comparison-table tr:nth-child(even) {
-        background-color: var(--secondary-color);
-      }
-
-      .status-box {
+      .simple-box {
         background-color: var(--secondary-color);
         border: 2px solid var(--primary-color);
         border-radius: 5px;
@@ -223,20 +183,6 @@
       .page-footer a:hover {
         color: #fff;
         text-decoration: underline;
-      }
-
-      .page-footer .social-links {
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-
-      .page-footer .social-links a {
-        margin: 0 10px;
-      }
-
-      .page-footer p {
-        text-align: center;
-        margin-bottom: 8px;
       }
 
       hr {
@@ -298,8 +244,7 @@
           page-break-inside: avoid;
         }
         .section,
-        .code-block,
-        .challenge-item {
+        .code-block {
           page-break-inside: avoid;
         }
         .toc {
@@ -318,13 +263,13 @@
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Learning Journal – Exercise 1.7</h1>
+        <h1>Learning Journal – Exercise 2.1</h1>
         <div class="header-info">
           <strong>Name:</strong> Ivan Cortes<br />
           <strong>Course:</strong> CareerFoundry – Python for Web Developers<br />
-          <strong>Exercise:</strong> 1.7 – Object-Relational Mapping in Python<br />
+          <strong>Exercise:</strong> 2.1 – Getting Started with Django<br />
           <strong>Date:</strong> October 2025<br />
-          <strong>Python Version:</strong> 3.13.5 (adapted from 3.8.x course materials)
+          <strong>Python/Django:</strong> Python 3.13.5 · Django 5.x (adapted from course targets: Python 3.8.7 · Django 3.2.4)
         </div>
       </div>
 
@@ -333,418 +278,145 @@
       <div class="toc">
         <h2>Table of Contents</h2>
         <ol>
-          <li><a href="#section-1">Exercise Overview</a></li>
-          <li><a href="#section-2">What Is ORM and Why It Matters</a></li>
-          <li><a href="#section-3">What I Built</a></li>
-          <li><a href="#section-4">Challenges and Solutions</a></li>
-          <li><a href="#section-5">Exercise 1.6 vs 1.7 Comparison</a></li>
-          <li><a href="#section-6">Key Concepts Mastered</a></li>
-          <li><a href="#section-7">Screenshots and Deliverables</a></li>
-          <li><a href="#section-8">AI Assistance Declaration</a></li>
-          <li><a href="#section-9">Achievement 1 Complete</a></li>
+          <li><a href="#section-1">1) What This Exercise Was About</a></li>
+          <li><a href="#section-2">2) Key Answers from My Research (PDF)</a></li>
+          <li><a href="#section-3">3) Environment Setup Completed</a></li>
+          <li><a href="#section-4">4) Problems I Ran Into & Solutions</a></li>
+          <li><a href="#section-5">5) New Skills Acquired</a></li>
+          <li><a href="#section-6">6) What I'll Remember Most</a></li>
+          <li><a href="#section-7">7) Screenshots & Files</a></li>
+          <li><a href="#section-8">8) AI Assistance Declaration</a></li>
+          <li><a href="#section-9">9) What's Next</a></li>
         </ol>
       </div>
 
       <div class="section" id="section-1">
-        <h2>1) Exercise Overview</h2>
+        <h2>1) What This Exercise Was About</h2>
         <p>
-          Exercise 1.7 marks the completion of Achievement 1, introducing Object-Relational Mapping (ORM) through SQLAlchemy. This exercise refactored the MySQL Recipe application from Exercise 1.6, replacing raw SQL queries with ORM patterns that represent a fundamental shift in how Python applications interact with databases.
-        </p>
-        <p>
-          Rather than writing SQL strings manually, ORM allows developers to work with Python objects and classes. SQLAlchemy automatically translates Python code into SQL queries, making database operations more intuitive, maintainable, and database-agnostic. This represents modern best practices in Python web development and is the foundation for frameworks like Django.
-        </p>
-        <p>
-          <strong>The Goal:</strong> Build a complete CRUD application using SQLAlchemy's ORM, demonstrating that the same functionality from Exercise 1.6 can be achieved with cleaner, more Pythonic code.
+          Exercise 2.1 introduced Django: what it is, where it shines, how MVT compares to MVC,
+          and how to prepare my machine for web development with a clean virtual environment.
+          Coming from Achievement 1 (CLI-based Recipe app), this exercise framed how those same
+          backend concepts evolve into a full web framework.
         </p>
       </div>
 
       <div class="section" id="section-2">
-        <h2>2) What Is ORM and Why It Matters</h2>
-        
-        <h3>Understanding the Translation</h3>
+        <h2>2) Key Answers from My Research (PDF)</h2>
+
+        <h3>2.1 Why Django Is Popular</h3>
         <p>
-          ORM stands for Object-Relational Mapping—it's a bridge between two different worlds:
+          Django enables fast, secure development without reinventing the wheel.
+          It includes auth, admin, ORM, and templating out of the box, is written in approachable Python,
+          and has excellent documentation and community support.
         </p>
+
+        <h3>2.2 Five Companies Using Django (What for)</h3>
         <ul>
-          <li><strong>Python World:</strong> Objects, classes, methods, attributes</li>
-          <li><strong>Database World:</strong> Tables, rows, columns, SQL queries</li>
-        </ul>
-        
-        <h3>The Problem ORM Solves</h3>
-        <p>
-          In Exercise 1.6, every database operation required writing SQL strings. This approach had several limitations:
-        </p>
-        <ul>
-          <li>SQL syntax varies between databases (MySQL vs PostgreSQL vs SQLite)</li>
-          <li>Easy to make typos in SQL strings that don't get caught until runtime</li>
-          <li>No IDE autocomplete or type checking for SQL queries</li>
-          <li>Mixing SQL and Python logic makes code harder to read</li>
-          <li>Manual data type conversion between Python and SQL</li>
+          <li><strong>Instagram</strong> — user accounts, media uploads, feed management.</li>
+          <li><strong>Spotify</strong> — internal dashboards and operational tooling.</li>
+          <li><strong>NASA</strong> — public-facing content sites with strong security.</li>
+          <li><strong>Disqus</strong> — global comment system serving millions.</li>
+          <li><strong>Pinterest</strong> — content management for pins/boards and delivery.</li>
         </ul>
 
-        <h3>How ORM Changes Everything</h3>
-        <p>
-          With SQLAlchemy ORM, you write pure Python. The library handles SQL generation automatically:
-        </p>
-        
-        <div class="code-block">
-# Exercise 1.6 (Raw SQL)
-cursor.execute("INSERT INTO Recipes (name, cooking_time) VALUES (%s, %s)", 
-               (name, cooking_time))
-conn.commit()
-
-# Exercise 1.7 (ORM)
-recipe = Recipe(name=name, cooking_time=cooking_time)
-session.add(recipe)
-session.commit()
-        </div>
-
-        <p>
-          The ORM approach is:
-        </p>
+        <h3>2.3 When to Use (or Not Use) Django — Scenario Decisions</h3>
         <ul>
-          <li><strong>More readable:</strong> Looks like regular Python object creation</li>
-          <li><strong>Type-safe:</strong> IDE can check attributes and methods</li>
-          <li><strong>Database-agnostic:</strong> Same code works with MySQL, PostgreSQL, SQLite</li>
-          <li><strong>Less error-prone:</strong> No SQL syntax typos</li>
-          <li><strong>Object-oriented:</strong> Recipes are objects with methods, not just data tuples</li>
+          <li><strong>Multiple users?</strong> Yes — built-in auth and permissions.</li>
+          <li><strong>Fast iteration?</strong> Yes — batteries-included, structured tooling.</li>
+          <li><strong>Tiny app, no DB/files?</strong> No — use a lighter microframework (e.g., Flask).</li>
+          <li><strong>Total, low-level control?</strong> Not ideal — Django is opinionated.</li>
+          <li><strong>Big project, need support?</strong> Yes — great docs and community.</li>
         </ul>
-
-        <h3>Key Insight</h3>
-        <p>
-          ORM isn't magic—it's automatic translation. Understanding that SQLAlchemy generates SQL behind the scenes demystifies the abstraction. You're not avoiding SQL; you're letting Python write it for you.
-        </p>
       </div>
 
       <div class="section" id="section-3">
-        <h2>3) What I Built</h2>
-        
-        <h3>Application Structure</h3>
+        <h2>3) Environment Setup Completed</h2>
         <p>
-          The final application includes:
+          I verified Python, created/activated a virtual environment named <code>achievement2-practice</code>, and
+          installed Django, confirming the version via <code>django-admin --version</code>.
         </p>
-        <ul>
-          <li><strong>Recipe Model:</strong> ORM class representing the database table</li>
-          <li><strong>Five CRUD Functions:</strong> Create, Read (2 types), Update, Delete</li>
-          <li><strong>Interactive Menu:</strong> User-friendly command-line interface</li>
-          <li><strong>Error Handling:</strong> Validates all user input gracefully</li>
-          <li><strong>Session Management:</strong> Proper connection lifecycle handling</li>
-        </ul>
 
-        <h3>The Recipe Model</h3>
-        <p>
-          At the heart of the application is the Recipe class:
-        </p>
+        <h3>Windows (Git Bash)</h3>
         <div class="code-block">
-class Recipe(Base):
-    __tablename__ = "final_recipes"
-    
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(50))
-    ingredients = Column(String(255))
-    cooking_time = Column(Integer)
-    difficulty = Column(String(20))
-    
-    def calculate_difficulty(self):
-        # Determines Easy/Medium/Intermediate/Hard
-    
-    def return_ingredients_as_list(self):
-        # Convert comma-separated string to list
+py -3.9 --version
+py -3.9 -m venv achievement2-practice
+source achievement2-practice/Scripts/activate
+python -m pip install --upgrade pip
+pip install "Django>=5"
+django-admin --version
         </div>
 
-        <p>
-          This single class definition automatically creates a MySQL table with the correct schema, something that required explicit SQL CREATE TABLE statements in Exercise 1.6.
-        </p>
-
-        <h3>Key Features Implemented</h3>
-        <ul>
-          <li><strong>Automatic difficulty calculation:</strong> Recipes calculate their own complexity</li>
-          <li><strong>Formatted display:</strong> Custom __str__ method creates visually appealing output</li>
-          <li><strong>Ingredient search:</strong> Filter recipes by multiple ingredients using ORM queries</li>
-          <li><strong>Safe updates:</strong> Edit any field with automatic difficulty recalculation</li>
-          <li><strong>Confirmation prompts:</strong> Delete operations require explicit user confirmation</li>
-        </ul>
+        <h3>macOS/Linux</h3>
+        <div class="code-block">
+python3 --version
+python3 -m venv achievement2-practice
+source achievement2-practice/bin/activate
+python -m pip install --upgrade pip
+pip install "Django>=5"
+django-admin --version
+        </div>
       </div>
 
       <div class="section" id="section-4">
-        <h2>4) Challenges and Solutions</h2>
-
-        <div class="challenge-item">
-          <div class="challenge-title">Python Version Compatibility</div>
-          <p>
-            <strong>Challenge:</strong> Course materials targeted Python 3.8.x/3.9.x with SQLAlchemy 1.x, but my system runs Python 3.13.5 with SQLAlchemy 2.0.43. Initial pip installs went to wrong Python version.<br />
-            <span class="solution">Solution:</span> Created dedicated virtual environment (<code>cf-python-ex17</code>) using <code>python -m venv</code> to ensure consistent Python 3.13.5 usage across all operations. Verified with <code>python --version</code> matching the venv Python.
-          </p>
-        </div>
-
-        <div class="challenge-item">
-          <div class="challenge-title">Understanding self Parameter</div>
-          <p>
-            <strong>Challenge:</strong> The <code>self</code> parameter in methods was initially confusing—why every method needs it and what it represents.<br />
-            <span class="solution">Solution:</span> Realized <code>self</code> represents the current instance. When calling <code>tea.calculate_difficulty()</code>, Python automatically passes <code>tea</code> as <code>self</code>. This is how methods know which object's data to use.
-          </p>
-        </div>
-
-        <div class="challenge-item">
-          <div class="challenge-title">Indentation Scope Errors</div>
-          <p>
-            <strong>Challenge:</strong> Initially placed <code>calculate_difficulty()</code> and <code>return_ingredients_as_list()</code> outside the Recipe class due to indentation errors.<br />
-            <span class="solution">Solution:</span> Used VS Code's indentation guides to visualize class scope. Methods must be indented 4 spaces under class definition, aligned with <code>__repr__</code> and <code>__str__</code>. Python uses whitespace to define scope.
-          </p>
-        </div>
-
-        <div class="challenge-item">
-          <div class="challenge-title">Query Method Selection</div>
-          <p>
-            <strong>Challenge:</strong> Confusion about when to use <code>.all()</code> vs <code>.first()</code> vs <code>.one()</code> on queries.<br />
-            <span class="solution">Solution:</span> <code>.all()</code> returns a list (safest for iteration), <code>.first()</code> returns one object or None, <code>.one()</code> raises errors if not exactly one result. For most use cases, <code>.all()</code> provides most flexibility.
-          </p>
-        </div>
-
-        <div class="challenge-item">
-          <div class="challenge-title">Missing delete_recipe() Implementation</div>
-          <p>
-            <strong>Challenge:</strong> Forgot to implement <code>delete_recipe()</code> function, causing menu option 5 to fail.<br />
-            <span class="solution">Solution:</span> Implemented complete delete function with confirmation logic. Highlighted importance of systematic implementation following CRUD checklist.
-          </p>
-        </div>
-
-        <div class="challenge-item">
-          <div class="challenge-title">ORM Abstraction Understanding</div>
-          <p>
-            <strong>Challenge:</strong> Initially struggled with where SQL generation happens and whether I'm "really" using databases without writing SQL.<br />
-            <span class="solution">Understanding:</span> SQLAlchemy generates SQL at commit/query execution time. The abstraction doesn't hide SQL—it automates its generation from Python code. Can enable SQLAlchemy logging to see generated SQL for debugging.
-          </p>
-        </div>
+        <h2>4) Problems I Ran Into & Solutions</h2>
+        <ul>
+          <li><strong>PowerShell vs Git Bash:</strong> On Windows, I stuck to Git Bash for consistent activation syntax.</li>
+          <li><strong>Multiple Python versions:</strong> Explicitly calling <code>py -3.9</code> ensured venv creation with the expected interpreter.</li>
+          <li><strong>Package updates:</strong> Running <code>python -m pip install --upgrade pip</code> prevented install warnings.</li>
+        </ul>
       </div>
 
       <div class="section" id="section-5">
-        <h2>5) Exercise 1.6 vs 1.7 Comparison</h2>
-        
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Operation</th>
-              <th>Exercise 1.6 (Raw SQL)</th>
-              <th>Exercise 1.7 (ORM)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Connection</strong></td>
-              <td><code>conn = mysql.connector.connect(...)</code></td>
-              <td><code>engine = create_engine(...)</code></td>
-            </tr>
-            <tr>
-              <td><strong>Execution Handler</strong></td>
-              <td><code>cursor = conn.cursor()</code></td>
-              <td><code>session = Session()</code></td>
-            </tr>
-            <tr>
-              <td><strong>Create Table</strong></td>
-              <td><code>CREATE TABLE Recipes (...)</code> SQL string</td>
-              <td><code>Base.metadata.create_all(engine)</code></td>
-            </tr>
-            <tr>
-              <td><strong>Insert Recipe</strong></td>
-              <td><code>cursor.execute("INSERT INTO...")</code></td>
-              <td><code>session.add(recipe)</code></td>
-            </tr>
-            <tr>
-              <td><strong>Select All</strong></td>
-              <td><code>cursor.execute("SELECT * FROM...")</code></td>
-              <td><code>session.query(Recipe).all()</code></td>
-            </tr>
-            <tr>
-              <td><strong>Filter/Search</strong></td>
-              <td><code>WHERE ingredients LIKE '%Sugar%'</code></td>
-              <td><code>.filter(Recipe.ingredients.like('%Sugar%'))</code></td>
-            </tr>
-            <tr>
-              <td><strong>Update</strong></td>
-              <td><code>cursor.execute("UPDATE Recipes SET...")</code></td>
-              <td><code>recipe.name = "Tea"; session.commit()</code></td>
-            </tr>
-            <tr>
-              <td><strong>Delete</strong></td>
-              <td><code>cursor.execute("DELETE FROM...")</code></td>
-              <td><code>session.delete(recipe)</code></td>
-            </tr>
-            <tr>
-              <td><strong>Commit Changes</strong></td>
-              <td><code>conn.commit()</code></td>
-              <td><code>session.commit()</code></td>
-            </tr>
-            <tr>
-              <td><strong>Data Type</strong></td>
-              <td>Tuples: <code>(1, "Tea", "5", "...")</code></td>
-              <td>Objects: <code>recipe.name</code></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Why ORM is Better (For This Use Case)</h3>
+        <h2>5) New Skills Acquired</h2>
         <ul>
-          <li><strong>Readability:</strong> Python code reads like natural language</li>
-          <li><strong>Maintainability:</strong> Schema changes only require modifying model class</li>
-          <li><strong>Type Safety:</strong> IDE autocomplete prevents attribute typos</li>
-          <li><strong>Database Portability:</strong> Switch databases by changing connection string</li>
-          <li><strong>Object Methods:</strong> Recipes have behaviors (calculate_difficulty), not just data</li>
+          <li>Explained MVT and contrasted it with MVC in practical terms.</li>
+          <li>Configured a clean Python environment and installed Django.</li>
+          <li>Evaluated where Django is a fit vs. when a microframework makes more sense.</li>
         </ul>
       </div>
 
       <div class="section" id="section-6">
-        <h2>6) Key Concepts Mastered</h2>
-        
-        <h3>Declarative Base and Models</h3>
-        <ul>
-          <li><code>Base = declarative_base()</code> creates foundation for ORM models</li>
-          <li>Classes inherit from Base to become database-mapped</li>
-          <li><code>__tablename__</code> specifies MySQL table name</li>
-          <li>Column definitions use SQLAlchemy types that map to SQL types</li>
-        </ul>
-
-        <h3>Column Definitions</h3>
-        <ul>
-          <li><code>Column(Integer, primary_key=True, autoincrement=True)</code> creates auto-incrementing ID</li>
-          <li><code>Column(String(50))</code> becomes <code>VARCHAR(50)</code> in MySQL</li>
-          <li>Constraints (primary_key, nullable, default) translate to SQL constraints</li>
-        </ul>
-
-        <h3>Special Methods</h3>
-        <ul>
-          <li><code>__repr__()</code> for developer-friendly object representation</li>
-          <li><code>__str__()</code> for user-friendly formatted display</li>
-          <li>These make Recipe objects human-readable instead of memory addresses</li>
-        </ul>
-
-        <h3>Session Management</h3>
-        <ul>
-          <li>Engine manages database connection pool</li>
-          <li>Session handles transactions (analogous to cursor in raw SQL)</li>
-          <li><code>session.add()</code> stages objects for insertion</li>
-          <li><code>session.commit()</code> persists changes to database</li>
-          <li><code>session.close()</code> and <code>engine.dispose()</code> cleanup connections</li>
-        </ul>
-
-        <h3>Query Construction</h3>
-        <ul>
-          <li><code>session.query(Recipe)</code> starts query on Recipe table</li>
-          <li><code>.filter(Recipe.name == "Tea")</code> adds WHERE clause</li>
-          <li><code>.like("%ingredient%")</code> enables pattern matching</li>
-          <li><code>.all()</code> returns list of objects</li>
-          <li><code>.first()</code> returns single object or None</li>
-          <li><code>.count()</code> returns number of matching rows</li>
-        </ul>
-
-        <h3>Update and Delete Patterns</h3>
-        <ul>
-          <li><strong>Update:</strong> Retrieve object → Modify attributes → Commit</li>
-          <li><strong>Delete:</strong> Retrieve object → <code>session.delete()</code> → Commit</li>
-          <li>No UPDATE or DELETE SQL statements needed—ORM tracks changes automatically</li>
-        </ul>
+        <h2>6) What I'll Remember Most</h2>
+        <p>
+          Django rewards structure. Embracing its conventions speeds up delivery and lowers risk.
+          Knowing when to choose Django vs. Flask keeps projects lean without sacrificing capability.
+        </p>
       </div>
 
       <div class="section" id="section-7">
-        <h2>7) Screenshots and Deliverables</h2>
-        
-        <h3>Setup and Configuration</h3>
+        <h2>7) Screenshots & Files</h2>
+        <p>Placed in <code>Achievement 2/Exercise 2.1/</code>:</p>
         <ul>
-          <li><strong>Screenshot 01:</strong> SQLAlchemy & Python incompatibility and update installation</li>
-          <li><strong>Screenshot 02:</strong> Python ex 17 update running</li>
-          <li><strong>Screenshot 03:</strong> Imports & Engine setup</li>
-        </ul>
-
-        <h3>Code Structure</h3>
-        <ul>
-          <li><strong>Screenshot 04:</strong> Complete Recipe Class</li>
-          <li><strong>Screenshot 05:</strong> Table & Session Creation</li>
-          <li><strong>Screenshot 06:</strong> All CRUD Functions</li>
-          <li><strong>Screenshot 07:</strong> Main Menu implementation</li>
-          <li><strong>Screenshot 08:</strong> Delete Recipe function</li>
-          <li><strong>Screenshot 09:</strong> Full Code overview</li>
-        </ul>
-
-        <h3>Testing Process</h3>
-        <ul>
-          <li><strong>Screenshot 10:</strong> Test 1 - Creating recipes</li>
-          <li><strong>Screenshot 11:</strong> View All Recipes test</li>
-          <li><strong>Screenshot 12:</strong> Find By Ingredient test</li>
-          <li><strong>Screenshot 13:</strong> Update Recipe test</li>
-          <li><strong>Screenshot 14:</strong> Delete Recipe test</li>
-          <li><strong>Screenshot 15:</strong> Exit program test</li>
-        </ul>
-
-        <h3>Files Delivered</h3>
-        <ul>
-          <li><code>recipe_app.py</code> - Complete ORM-based application</li>
-          <li><code>README.md</code> - Technical documentation and comparison guide</li>
-          <li><code>LEARNING_JOURNAL7.html</code> - This learning reflection</li>
-          <li><code>screenshots/</code> - 15 verification screenshots</li>
-          <li>Updated <code>index.html</code> - Navigation including Exercise 1.7</li>
+          <li><code>01-python-version.png</code> — Terminal showing Python version command/output</li>
+          <li><code>02-venv-activated.png</code> — Activated <code>(achievement2-practice)</code></li>
+          <li><code>03-django-version.png</code> — <code>django-admin --version</code> output</li>
+          <li><code>EXERCISE_2.1_ANSWERS.pdf</code> — Theory answers (this exercise's task PDF)</li>
+          <li><code>LEARNING_JOURNAL7.html</code> — This document</li>
         </ul>
       </div>
 
       <div class="section" id="section-8">
         <h2>8) AI Assistance Declaration</h2>
-        
-        <h3>Technical Challenges Addressed</h3>
         <p>
-          This exercise required adapting course materials from Python 3.8.x/SQLAlchemy 1.x to Python 3.13.5/SQLAlchemy 2.0.43. AI assistance provided technical reference for:
-        </p>
-        <ul>
-          <li>Version compatibility resolution between deprecated and current library versions</li>
-          <li>ORM conceptual understanding through comparison with Exercise 1.6's raw SQL approach</li>
-          <li>Debugging assistance for indentation errors and scope issues</li>
-          <li>Clarification of SQLAlchemy query patterns and method selection</li>
-        </ul>
-
-        <h3>Learning Approach</h3>
-        <p>
-          The learning process involved systematic problem-solving to bridge version gaps while understanding ORM principles. AI tools served as technical documentation and version-translation reference, similar to consulting official library documentation when working with updated frameworks.
-        </p>
-
-        <h3>Independent Implementation</h3>
-        <ul>
-          <li>Created Python 3.13.5 virtual environment and managed all dependencies</li>
-          <li>Debugged code systematically, resolving indentation and structural errors</li>
-          <li>Executed complete testing suite with 4 recipes covering all CRUD operations</li>
-          <li>Captured 15 screenshots documenting setup, implementation, and testing phases</li>
-          <li>Generated comprehensive technical documentation</li>
-        </ul>
-
-        <h3>Skills Developed</h3>
-        <p>
-          Beyond ORM syntax, this exercise reinforced critical development skills: adapting deprecated code to current standards, systematic debugging through scope analysis, version management across environments, and self-directed learning when working with evolving technology stacks. These meta-skills—knowing how to learn when documentation is outdated—are as valuable as the ORM patterns themselves.
+          AI was used as a technical reference to modernize instructions (versions, shells)
+          and clarify MVT vs MVC. All commands and installations were executed by me.
+          Screenshots and the PDF were created independently.
         </p>
       </div>
 
       <div class="section" id="section-9">
-        <h2>9) Achievement 1 Complete</h2>
-        
-        <h3>Technical Mastery</h3>
+        <h2>9) What's Next</h2>
         <p>
-          Exercise 1.7 synthesizes all Achievement 1 concepts: environment management (1.1), data structures (1.2), control flow (1.3), file handling (1.4), OOP (1.5), databases (1.6), and ORM abstraction (1.7). The Recipe application demonstrates professional-grade CRUD operations with clean, maintainable code.
+          Exercise 2.2: generate a new Django project, explore its folder structure, and render the first template.
+          The environment and concepts here carry straight into building the Recipe web app.
         </p>
-
-        <h3>Skills Beyond Syntax</h3>
-        <p>
-          The deeper learning: understanding abstraction layers in software development. ORMs abstract SQL just as operating systems abstract hardware. Knowing when to use abstractions (ORM for standard operations) versus dropping to lower levels (raw SQL for complex queries) represents critical developer judgment that transcends any single framework.
-        </p>
-
-        <h3>What's Next</h3>
-        <p>
-          Achievement 2 introduces Django, which uses its own ORM. The SQLAlchemy concepts—models, queries, sessions—transfer directly. The difference: Django generates web pages instead of command-line interfaces. The database interaction patterns remain the same. Achievement 1 established backend foundations; Achievement 2 adds frontend capabilities for full-stack development.
-        </p>
-
-        <div class="status-box">
-          ✓ Exercise 1.7 Complete<br />
-          ✓ Achievement 1 Complete<br />
-          ✓ Ready for Achievement 2: Django Web Development
-        </div>
       </div>
 
       <hr />
+
+      <div class="simple-box">
+        Exercise 2.1 Complete ✓ &nbsp;•&nbsp; Django installed and verified
+      </div>
 
       <div class="page-footer">
         <div class="social-links">
@@ -761,7 +433,7 @@ class Recipe(Base):
     </div>
 
     <div class="floating-nav">
-      <a href="index.html" title="Go to Home">🏠</a>
+      <a href="./index.html" title="Go to Home">🏠</a>
       <a href="javascript:history.back()" title="Go Back">⬅️</a>
     </div>
   </body>
